@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Amazon Musicの曲のリンクをコピーする方法。iPhone・Androidのブラウザとアプリを、タップ位置の図で案内します。">
+<title>曲のリンク、どう取る？ | Music Link Guide</title>
+<style>
+:root{--paper:#f6f4ef;--ink:#263b35;--muted:#526259;--line:#d2d9cf;--accent:#aa3927;--green:#235a46;--white:#fffdf8;--soft:#e7ebe3;--font:"BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
+*{box-sizing:border-box}html{scroll-padding-top:16px}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.7 var(--font);-webkit-font-smoothing:antialiased}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}button:disabled{cursor:default}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}header,main,footer{max-width:1050px;margin:auto;padding-inline:28px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-block:14px;border-bottom:1px solid var(--line)}.brand{display:flex;gap:9px;align-items:center;font-size:15px;font-weight:700}.brand-mark{width:25px;height:25px;display:grid;place-items:center;background:var(--green);color:var(--white);border-radius:50%}.draft{font-size:14px;color:var(--muted)}.hero{padding:28px 0 24px}.eyebrow{margin:0 0 3px;font-size:15px;color:var(--muted)}h1{font-size:clamp(25px,4vw,36px);line-height:1.5;margin:0;letter-spacing:-.03em}.section-label{font-size:19px;margin:0 0 12px}.route-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #b7c3b5;border-radius:12px;overflow:hidden;background:var(--white)}.route{border:0;border-right:1px solid var(--line);padding:15px 18px;text-align:left;background:transparent;position:relative;min-height:104px}.route:last-child{border-right:0}.route:hover{background:var(--soft)}.route[aria-pressed=true]{background:var(--green);color:var(--white)}.route:focus-visible{outline-offset:-5px;outline-color:#efb08e}.route-top{display:block;font-size:15px}.route-name{display:block;font-size:21px;font-weight:700}.route-sub{display:block;font-size:14px}.route-check{position:absolute;right:12px;top:12px;opacity:0}.route[aria-pressed=true] .route-check{opacity:1}
+.guide{margin-top:28px;border-top:1px solid var(--line);padding-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:36px}.guide-text{display:flex;flex-direction:column;justify-content:center}.step-kicker{font-size:19px;font-weight:700;color:var(--green)}h2{font-size:clamp(24px,3vw,29px);line-height:1.6;margin:8px 0 10px;letter-spacing:-.02em}.instruction{font-size:18px;line-height:1.8;margin:0}.visual-panel{background:var(--soft);border-radius:16px;padding:20px 16px 14px;align-self:start}.phone{position:relative;width:min(100%,310px);margin:auto;aspect-ratio:320/520;border:5px solid #30413a;border-radius:31px;overflow:hidden;background:#182320}.phone svg{width:100%;height:100%;display:block}.hotspot{position:absolute;border:3px solid #ff9d79;border-radius:9px;background:transparent;box-shadow:0 0 0 3px #b63e2b80;z-index:2;min-width:44px;min-height:44px}.hotspot:hover{background:#f7926830}.hotspot:focus-visible{outline:3px solid #fff1d5;outline-offset:4px}.touch-label{position:absolute;right:-4px;top:-33px;background:#ffab88;color:#34251d;border-radius:4px;padding:3px 9px;font-size:14px;font-weight:800;white-space:nowrap;line-height:1.5}.touch-label:after{content:"";position:absolute;right:10px;bottom:-5px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #ffab88}.image-note{text-align:center;font-size:14px;color:var(--muted);margin:10px 0 0}.guide-controls{margin-top:26px}.progress{display:flex;gap:7px;margin-bottom:14px}.step-dot{flex:1;min-width:0;min-height:48px;border:1px solid #aebaac;border-radius:6px;background:transparent;font-size:17px}.step-dot[aria-current=step]{background:var(--green);border-color:var(--green);color:var(--white);font-weight:700}.step-dot.complete:not([aria-current=step]){border-color:var(--green);color:var(--green)}.nav{display:flex;gap:10px}.nav button{min-height:56px;border-radius:8px;font-size:20px;font-weight:700}.back{background:transparent;border:1px solid #aebaac;padding-inline:20px}.back:disabled{opacity:.4}.next{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 18px;background:var(--green);border:1px solid var(--green);color:var(--white)}.next:hover{background:#194633}.practice-note{font-size:15px;color:var(--accent);margin:12px 0 0}.finish{margin-top:22px;padding:22px;background:#e3ecdf;border-radius:10px}.finish h3{font-size:23px;margin:0 0 8px}.finish p{font-size:18px;margin:0}.finish button{min-height:52px;padding:9px 16px;background:transparent;border:1px solid var(--green);border-radius:6px;margin-top:16px}.faq{margin:28px 0}.faq details{border-block:1px solid var(--line);padding:4px 0}.faq summary{font-size:18px;font-weight:700;cursor:pointer;min-height:56px;padding:12px 0}.faq p{font-size:17px;margin:12px 0 16px}.faq strong{display:block}.browser-warning button{display:block;min-height:48px;padding:8px 12px;margin-top:8px;border:1px solid var(--green);border-radius:6px;background:transparent;font-size:17px;color:var(--green)}.foot{border-top:1px solid var(--line);padding-block:16px 24px;color:var(--muted);font-size:14px}.foot p{margin:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}.skip{position:fixed;top:-100px;background:var(--white);padding:10px;z-index:20;color:var(--ink)}.skip:focus{top:8px}noscript p{padding:16px}
+@media(max-width:720px){header,main,footer{padding-inline:18px}.hero{padding:20px 0}.route-grid{grid-template-columns:repeat(2,1fr)}.route{padding:12px 14px;min-height:96px}.route:nth-child(2){border-right:0}.route:nth-child(-n+2){border-bottom:1px solid var(--line)}.route-name{font-size:20px}.guide{grid-template-columns:1fr;gap:16px;margin-top:22px;padding-top:18px}.guide-text{display:contents}.step-body{grid-row:1}.visual-panel{grid-row:2;padding:16px 12px 12px}.guide-controls{grid-row:3;margin-top:0}.phone{width:min(100%,290px)}h2{font-size:25px;margin:3px 0 6px}.instruction{font-size:18px}.step-kicker{font-size:17px}.faq{margin-top:24px}.section-label{font-size:18px}}
+@media(max-width:360px){header,main,footer{padding-inline:12px}.route{padding-inline:12px}.route-name{font-size:18px}.phone{width:268px;max-width:100%}.brand{font-size:14px}.draft{font-size:13px}h2{font-size:23px}.nav button{font-size:18px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{.route-grid,.nav,.hotspot,.progress,.draft{display:none}.guide{break-inside:avoid}.phone{width:220px}.hero{padding:12px 0}.visual-panel{print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<a class="skip" href="#guide">操作手順へ</a>
+<header><div class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">♪</span>曲のリクエスト</div><span class="draft">見本ページ</span></div></header>
+<main>
+<section class="hero" aria-labelledby="page-title"><p class="eyebrow">Amazon Music</p><h1 id="page-title">曲のリンクをコピーする方法</h1></section>
+<section aria-labelledby="choose"><h2 class="section-label" id="choose">使っているものを押してください</h2>
+<div class="route-grid" role="group" aria-label="端末とAmazon Musicの開き方">
+<button class="route" data-route="safari" aria-pressed="true" aria-controls="guide"><span class="route-top">iPhone<span class="route-check" aria-hidden="true">✓</span></span><span class="route-name">Safari</span><span class="route-sub">サファリ</span></button>
+<button class="route" data-route="chrome" aria-pressed="false" aria-controls="guide"><span class="route-top">Android<span class="route-check" aria-hidden="true">✓</span></span><span class="route-name">Chrome</span><span class="route-sub">クローム</span></button>
+<button class="route" data-route="ios" aria-pressed="false" aria-controls="guide"><span class="route-top">iPhone<span class="route-check" aria-hidden="true">✓</span></span><span class="route-name">Amazon Music</span><span class="route-sub">アプリ</span></button>
+<button class="route" data-route="android" aria-pressed="false" aria-controls="guide"><span class="route-top">Android<span class="route-check" aria-hidden="true">✓</span></span><span class="route-name">Amazon Music</span><span class="route-sub">アプリ</span></button>
+</div><p class="sr-only" id="route-name">iPhone の Safari</p></section>
+<noscript><p>手順が出ない場合は、担当者に声をかけてください。</p></noscript>
+<section class="guide" id="guide" aria-labelledby="step-title">
+<div class="guide-text"><div class="step-body"><div class="step-kicker" id="step-count">手順 1 / 5</div><h2 id="step-title">曲名を入れて検索</h2><p class="instruction" id="instruction"></p></div>
+<div class="guide-controls"><nav class="progress" aria-label="説明のステップ"><button class="step-dot" data-step="0" aria-label="手順1 曲を検索" aria-current="step">1</button><button class="step-dot" data-step="1" aria-label="手順2 曲のメニュー">2</button><button class="step-dot" data-step="2" aria-label="手順3 共有">3</button><button class="step-dot" data-step="3" aria-label="手順4 コピー">4</button><button class="step-dot" data-step="4" aria-label="手順5 貼り付け">5</button></nav><div class="nav"><button class="back" id="back" disabled>戻る</button><button class="next" id="next"><span id="next-label">次の手順</span><span aria-hidden="true">→</span></button></div><p class="practice-note">図の赤い枠を押しても、次へ進めます。</p></div></div>
+<div class="visual-panel"><div class="phone" id="phone"></div><p class="image-note">説明用の図です。実際の画面とは異なります。</p></div>
+</section>
+<div class="finish" id="finish" hidden tabindex="-1"><h3>説明はここまでです。</h3><p>コピーしたリンクを、アンケートに貼り付けてください。</p><button type="button" id="restart">最初から見る</button></div>
+<section class="faq" aria-label="困ったとき"><details id="help"><summary>わからないときはこちら</summary>
+<p><strong>画面が違う・ボタンが見つからない</strong>無理に進めず、担当者に声をかけてください。</p>
+<p class="browser-warning" id="browser-warning">アプリが開いたら、こちらへ。<button id="switch-app" type="button">アプリの手順を見る</button></p>
+<p><strong>貼り付けた文字は、そのまま</strong>リンクが短くても、自分で書き換えないでください。</p>
+</details></section>
+<div class="sr-only" role="status" aria-live="polite" id="announcement"></div>
+</main>
+<footer><div class="foot"><p>このページは説明だけです。回答は送信されません。</p></div></footer>
+<script>
+'use strict';
+const routes={safari:{name:'iPhone の Safari',visual:'SAFARI / iOS',browser:true,ios:true},chrome:{name:'Android の Chrome',visual:'CHROME / ANDROID',browser:true,ios:false},ios:{name:'iPhone の Amazon Musicアプリ',visual:'AMAZON MUSIC / iOS',browser:false,ios:true},android:{name:'Android の Amazon Musicアプリ',visual:'AMAZON MUSIC / ANDROID',browser:false,ios:false}};
+let route=Object.hasOwn(routes,location.hash.slice(1))?location.hash.slice(1):'safari',step=0;
+const byId=id=>document.getElementById(id);
+const escapeXml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
+function text(x,y,t,size=14,color='#e8eee8',weight=400){return `<text x="${x}" y="${y}" fill="${color}" font-size="${size}" font-weight="${weight}">${escapeXml(t)}</text>`;}
+function rect(x,y,w,h,fill,r=9,stroke='none'){return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}" stroke="${stroke}"/>`;}
+function search(x,y){return `<circle cx="${x}" cy="${y}" r="7" fill="none" stroke="#e8eee8" stroke-width="2"/><path d="M${x+5} ${y+5}l6 6" stroke="#e8eee8" stroke-width="2"/>`;}
+function dots(x,y,vertical=false){return [0,1,2].map(i=>`<circle cx="${vertical?x:x+(i-1)*6}" cy="${vertical?y+(i-1)*6:y}" r="2" fill="#e8eee8"/>`).join('');}
+function artwork(x,y,size){return rect(x,y,size,size,'#8c9672',5)+`<circle cx="${x+size*.5}" cy="${y+size*.5}" r="${size*.3}" fill="#d8c78e"/><path d="M${x} ${y+size*.9}l${size*.52} -${size*.5} ${size*.48} ${size*.5}" fill="#49634f"/>`;}
+function screen(){
+ const r=routes[route];let svg=`<svg viewBox="0 0 320 520" role="img" aria-label="${escapeXml(r.name+' 手順'+(step+1)+'の説明用イメージ')}" xmlns="http://www.w3.org/2000/svg"><g font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif">`;
+ svg+=rect(0,0,320,520,'#182320',0)+text(20,26,'9:41',11,'#e8eee8',700)+text(249,26,'● ▰',12);
+ if(r.browser&&!r.ios)svg+=rect(10,38,300,33,'#34443d',12)+text(23,60,'Amazon Music',11)+dots(290,54,true);
+ let top=r.browser&&!r.ios?102:68;
+ svg+=text(22,top,'amazon music',18,'#e8eee8',700);
+ if(step===0){
+  svg+=text(22,top+50,'好きな曲を、見つけよう。',19,'#e8eee8',700)+text(22,top+75,'曲名やアーティストで検索',12,'#aebfb0');
+  svg+=rect(20,top+103,280,43,'#34443d',10)+search(41,top+124)+text(60,top+129,'曲名・アーティスト',12);
+  svg+=artwork(22,top+180,128)+artwork(170,top+180,128)+text(22,top+332,'おすすめの音楽',12,'#aebfb0');
+  var hit={x:20,y:top+103,w:280,h:43,label:'検索欄をタップ。次の説明へ'};
+ }else if(step===1){
+  svg+=rect(20,top+22,280,38,'#34443d',9)+search(40,top+41)+text(62,top+46,'探したい曲名',12);
+  svg+=text(22,top+97,'楽曲',18,'#e8eee8',700);
+  for(let i=0;i<3;i++){let y=top+116+i*77;svg+=artwork(22,y,48)+text(81,y+18,i?'ほかの曲':'探していた曲',14,'#e8eee8',700)+text(81,y+38,'アーティスト名',12,'#aebfb0')+dots(278,y+24,!r.ios);}
+  hit={x:243,y:top+112,w:62,h:60,label:'曲のメニューをタップ。次の説明へ'};
+ }else if(step===2){
+  svg+=artwork(88,top+30,144)+text(99,top+199,'探していた曲',17,'#e8eee8',700)+rect(0,top+220,320,300,'#2b3932',18);
+  svg+=rect(137,top+230,46,4,'#819085',3)+text(24,top+268,'探していた曲',15,'#e8eee8',700)+text(24,top+288,'アーティスト名',11,'#adbdaf');
+  svg+=text(25,top+334,'プレイリストに追加',13)+`<path d="M21 ${top+366}v14h21v-14M31 ${top+374}v-19m-6 6l6-6 6 6" stroke="#e8eee8" fill="none" stroke-width="1.6"/>`+text(57,top+376,'曲を共有',15,'#e8eee8',700);
+  hit={x:15,y:top+350,w:288,h:44,label:'曲を共有をタップ。次の説明へ'};
+ }else if(step===3){
+  svg+=artwork(102,top+28,116)+text(99,top+170,'探していた曲',17,'#e8eee8',700);
+  svg+=rect(0,top+207,320,340,r.ios?'#f1f0e9':'#e0e5da',18)+rect(137,top+218,46,4,'#949f92',3);
+  if(r.browser){svg+=text(24,top+252,'この曲を共有',16,'#263b35',700)+rect(19,top+275,282,43,'#fffdf8',8)+text(33,top+302,'曲の共有リンク',12,'#53635a')+rect(19,top+336,282,45,'#fffdf8',8)+text(35,top+364,'リンクをコピー',15,'#263b35',700);hit={x:19,y:top+336,w:282,h:45,label:'リンクをコピーをタップ。次の説明へ'};
+  }else if(r.ios){svg+=artwork(21,top+240,39)+text(71,top+256,'探していた曲',13,'#263b35',700)+text(71,top+275,'Amazon Music',10,'#53635a');svg+=rect(20,top+305,280,20,'#dfe2d8',5)+rect(19,top+351,282,46,'#fffdf8',8)+text(34,top+380,'コピー',15,'#263b35',700);hit={x:19,y:top+351,w:282,h:46,label:'コピーをタップ。次の説明へ'};
+  }else{svg+=text(24,top+252,'リンクを共有',16,'#263b35',700)+rect(20,top+271,280,42,'#f5f5ec',8)+text(33,top+298,'曲の共有リンク',12,'#53635a')+rect(19,top+336,282,47,'#f5f5ec',8)+text(37,top+365,'コピー',15,'#263b35',700);hit={x:19,y:top+336,w:282,h:47,label:'コピーをタップ。次の説明へ'};}
+ }else{
+  svg+=rect(0,37,320,483,'#f4f1e8',0)+text(23,76,'アンケート（例）',16,'#263b35',700)+text(23,115,'曲のURL',13,'#263b35',700)+rect(21,134,278,105,'#fffdf8',7,'#b9c5b5')+text(35,193,'ここを長押し',13,'#6a796c');
+  svg+=rect(33,114,124,42,r.ios?'#35463d':'#e1e6d9',7)+text(49,141,r.ios?'ペースト':'貼り付け',14,r.ios?'#f3f4ed':'#263b35',700);
+  svg+=text(23,280,'リンク全体を貼り付けてください。',12,'#53635a')+rect(21,347,278,46,'#dfe5d8',7)+text(100,376,'送信前に確認',13,'#627661',700);
+  hit={x:33,y:114,w:124,h:42,label:'貼り付けの説明を終える'};
+ }
+ if(step!==4&&step!==2&&step!==3){if(r.browser&&r.ios)svg+=rect(0,468,320,52,'#33433c',0)+rect(23,478,274,28,'#45574c',9)+text(90,497,'Amazon Music',11);
+ else if(r.browser)svg+=rect(0,478,320,42,'#293b31',0)+text(46,506,'‹',24)+text(145,503,'⌂',20)+text(264,503,'▢',16);
+ else svg+=rect(0,483,320,37,'#22342a',0)+text(32,506,'ホーム',10)+text(130,506,'検索',10)+text(224,506,'ライブラリ',10);}
+ svg+='</g></svg>';
+ byId('phone').innerHTML=svg+`<button class="hotspot" type="button" style="left:${hit.x/3.2}%;top:${hit.y/5.2}%;width:${hit.w/3.2}%;height:${hit.h/5.2}%" aria-label="${escapeXml(hit.label)}"><span class="touch-label" style="${step===4?'left:0;right:auto':''}" aria-hidden="true">${step===4?'ここを押す':'ここを押す'}</span></button>`;
+ byId('phone').querySelector('button').addEventListener('click',()=>advance(true));
+}
+function content(){const r=routes[route];return [
+ {title:'曲名を入れて検索',body:'Amazon Musicを開き、曲名を入れます。'},
+ {title:'曲の横の「'+(r.ios?'…':'⋮')+'」を押す',body:'アルバムではなく、1曲を選びます。'},
+ {title:'「曲を共有」を押す',body:'「共有」と書かれている場合もあります。'},
+ {title:r.browser?'「リンクをコピー」を押す':'「コピー」を押す',body:r.browser?'曲の共有画面にあります。':'「リンクをコピー」でも同じです。'},
+ {title:'アンケートに貼り付ける',body:'アンケートに戻り、URL欄を長押し →「'+(r.ios?'ペースト':'貼り付け')+'」。'}
+ ];}
+function render(){const c=content()[step];document.querySelectorAll('[data-route]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.route===route)));byId('route-name').textContent=routes[route].name;byId('browser-warning').hidden=!routes[route].browser;byId('step-count').textContent='手順 '+(step+1)+' / 5';byId('step-title').textContent=c.title;byId('instruction').textContent=c.body;byId('back').disabled=step===0;byId('next-label').textContent=step===4?'説明を終わる':'次の手順';byId('finish').hidden=true;document.querySelectorAll('[data-step]').forEach(b=>{const n=Number(b.dataset.step);if(n===step)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('complete',n<step);});screen();byId('announcement').textContent=routes[route].name+'、手順'+(step+1)+'。'+c.title;}
+function scrollToGuide(){if(matchMedia('(max-width:720px)').matches)byId('guide').scrollIntoView({block:'start'});}
+function advance(fromDiagram=false){if(step<4){step++;render();if(fromDiagram)byId('phone').querySelector('button').focus({preventScroll:true});scrollToGuide();}else{byId('finish').hidden=false;byId('finish').focus({preventScroll:true});byId('finish').scrollIntoView({block:'center'});}}
+function selectRoute(value){if(!Object.hasOwn(routes,value))return;route=value;step=0;try{history.replaceState(null,'','#'+route);}catch{}render();}
+document.querySelectorAll('[data-route]').forEach(b=>b.addEventListener('click',()=>selectRoute(b.dataset.route)));document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>{step=Number(b.dataset.step);render();scrollToGuide();}));byId('back').addEventListener('click',()=>{if(step>0)step--;render();scrollToGuide();});byId('next').addEventListener('click',()=>advance());byId('restart').addEventListener('click',()=>{step=0;render();byId('next').focus({preventScroll:true});scrollToGuide();});byId('switch-app').addEventListener('click',()=>{selectRoute(routes[route].ios?'ios':'android');document.querySelector('[data-route="'+route+'"]').focus({preventScroll:true});});window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(Object.hasOwn(routes,h))selectRoute(h);});render();
+</script>
+</body>
+</html>
